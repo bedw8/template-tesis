@@ -22,6 +22,7 @@
 % Version Septiembre 2024 - Benjamín Edwards
 %   Se ordena más el main y se corrigen saltos de pagina (para doble pagina)
 %   Se añaden recomendaciones / indicaciones de porqué usar Cleveref
+%   Se añade opción de especificar género de autor
 %
 %   TODO - añadir opciones para customizar logo y nombre de universidad
 
