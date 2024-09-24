@@ -1,0 +1,89 @@
+% \documentclass{tesis}
+\documentclass[spanish]{tesis}
+
+\usepackage[inkscape=onlynewer]{svg} % importar svg // la opción de inkscape es opcional. quitar si no se tiene inkscape
+
+%%%% recomendaciones
+
+%% citas
+\usepackage[noabbrev,nameinlink]{cleveref}
+%% con este paquete podemos citar figuras, ecuaciones, tablas
+%% sin tener que escribir "Figura \ref{arbol}", o "Ecuación \eqref{H}"
+%%
+%% en su lugar, el comando \Cref escribe automáticamente 
+%% Figura, Ecuación, Tabla, identificando el tipo de las referencias 
+%% ejemplo: \Cref{H} -> "Ecuación (1)"
+%% el comando \cref hace lo mismo pero con la palabras en minúscula
+%% (figura, ecuación, tabla), identificando el tipo de las referencias 
+
+%% si el idioma del documento es ingles, el comando escribe las palabras en ingles. 
+
+% descomentar para incluir bibliografía
+%\usepackage[backend=biber,natbib=true,sorting=none,style=nature, maxcitenames=2,eprint=false,isbn=false,doi=true]{biblatex}
+%\addbibresource{refs.bib}
+
+\title{Titulo tesis}
+\author{Juan Carlos Bodoque}
+%\author[la]{Patana} se puede poner pronombres como argumento opcional 
+\postgrado[Master/PhD/Magister/Doctorado]{mención en Locura y Lujuria}
+
+%%% tutores/advisors - directores de Tesis
+%% si hay más de un director pondrá "directores" (directors en ingles)
+%% se puede modificar por directorAs o similares usando el argument opcional en una de las siguientes entradas
+\anadirdireccion{Dr. AAAAAA }
+\anadirdireccion{Dr. BBBBBB}
+\anadirdireccion[as]{Dr. CCCCC}
+
+%%% miembros comision evaluadora
+\anadircomision{Dr. Nombre1 Ap}
+\anadircomision{Dr. Nombre2 Ap}
+
+%%% cambiar por fecha de aprobacion
+\aprobacionfecha{YYYY-MM-DD}
+
+%%% carpeta de figuras y de svg
+\graphicspath{{figs}}
+\svgpath{{svg}}
+
+%%%%% si no se quiere compilar todo el document, es cosa de descomentar
+%%%%% esta linea
+% \inc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%% estructura en distintos archivos
+
+\import{./}{portada} % incluye portada y pagina de aprobacion
+\import{./}{biografia} % hau que incluir biografia
+\import{./}{gracias}
+
+%%% indice
+\begingroup
+\let\cleardoublepage\clearevenpage
+\tableofcontents
+\endgroup
+
+%%%
+\cleardoublepage
+\pagestyle{everypage}
+%%% aqui se pueden crear los archivos que uno quiera
+\import{./}{intro}
+\import{./}{analisis}
+\import{./}{discusion}
+
+%% descomentar para mostrar referencias
+% \cleardoublepage
+% \printbibliography[heading=bibintoc] 
+% \cleardoublepage
+
+%% apéndice
+% \appendix
+% \import{./}{apendice}
+% \clearevenpage
+% \pagestyle{empty}
+
+
+\end{document}
+
