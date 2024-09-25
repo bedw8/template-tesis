@@ -20,6 +20,7 @@
 \LoadClass[twoside,12pt]{book}
 
 % Version Septiembre 2024 - Benjamín Edwards
+%   Se añaden indicaciones para secciones/capítulos en paginas par o impar
 %   Se ordena más el main y se corrigen saltos de pagina (para doble pagina)
 %   Se añaden recomendaciones / indicaciones de porqué usar Cleveref
 %   Se añade opción de especificar género de autor

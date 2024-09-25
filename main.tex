@@ -1,7 +1,11 @@
 % \documentclass{tesis}
 \documentclass[spanish]{tesis}
 
-\usepackage[inkscape=onlynewer]{svg} % importar svg // la opción de inkscape es opcional. quitar si no se tiene inkscape
+% \usepackage[inkscape=onlynewer]{svg} % importar svg // la opción de inkscape es opcional. quitar si no se tiene inkscape
+
+%%% carpeta de figuras y de svg's
+\graphicspath{{figs}}
+% \svgpath{{svg}}
 
 %%%% recomendaciones
 
@@ -41,34 +45,37 @@
 %%% cambiar por fecha de aprobacion
 \aprobacionfecha{YYYY-MM-DD}
 
-%%% carpeta de figuras y de svg
-\graphicspath{{figs}}
-\svgpath{{svg}}
 
-%%%%% si no se quiere compilar todo el document, es cosa de descomentar
-%%%%% esta linea
-% \inc
+%%%%% si se quiere compilar solo una parte del documento, es cosa de indicarlo con
+% \includeonly{./intro.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 %%% estructura en distintos archivos
+\include{portada} % incluye portada y pagina de aprobacion
+\input{biografia} % hay que incluir biografia. incluye pagina de dedicatoria
+\input{gracias}
+\include{abstract}
 
-\import{./}{portada} % incluye portada y pagina de aprobacion
-\import{./}{biografia} % hau que incluir biografia
-\import{./}{gracias}
+%%% indice en hoja impar (lado izquierdo)
+% \cleardoublepage % para que haya una hoja blanca antes del indice
+% \begingroup
+% \let\cleardoublepage\clearevenpage
+% \tableofcontents
+% \endgroup
 
-%%% indice
-\begingroup
-\let\cleardoublepage\clearevenpage
+%%% indice en hoja par (lado derecho)
+\clearevenpage % para que haya una hoja blanca antes del indice
 \tableofcontents
-\endgroup
 
-%%%
-\cleardoublepage
+%%% CONTENIDO %%%
+% \clearevenpage % para que haya una hoja blanca después del indice
+\cleardoublepage % poner esto al inicio de cada capitulo si
+% se quiere forzar que parta en una pagina par (lado derecho)
 \pagestyle{everypage}
-%%% aqui se pueden crear los archivos que uno quiera
+%%% aquí ya se pueden crear los archivos que uno quiera
 \import{./}{intro}
 \import{./}{analisis}
 \import{./}{discusion}
@@ -80,10 +87,10 @@
 
 %% apéndice
 % \appendix
-% \import{./}{apendice}
-% \clearevenpage
-% \pagestyle{empty}
+% \include{apendice}
 
-
+% pagina blanca adicional
+\thispagestyle{empty}
+\clearevenpage
 \end{document}
 
